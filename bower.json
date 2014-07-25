@@ -1,0 +1,22 @@
+{
+  "name": "deliteful-build",
+  "version": "0.1.5-dev",
+  "dependencies": {
+    "requirejs": "2.1.x",
+    "dstore": "0.1.0",
+    "decor-build": "0.1.0-dev",
+    "delite-build": "0.1.10-dev",
+    "dpointer-build": "0.1.x",
+    "ecma402-build": "0.2.x"
+  },
+  "ignore": [
+    ".jshintrc",
+    ".gitattributes",
+    ".travis.yml",
+    "tests",
+    "CONTRIBUTING.md"
+  ],
+  "devDependencies": {
+    "deliteful": "0.1.5-dev"
+  }
+}
