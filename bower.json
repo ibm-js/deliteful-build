@@ -1,11 +1,11 @@
 {
   "name": "deliteful-build",
-  "version": "0.1.5-dev",
+  "version": "0.2.0-beta",
   "dependencies": {
     "requirejs": "2.1.x",
     "dstore": "0.1.0",
-    "decor-build": "0.1.0-dev",
-    "delite-build": "0.1.10-dev",
+    "decor-build": "0.2.0-beta",
+    "delite-build": "0.2.0-beta",
     "dpointer-build": "0.1.x",
     "ecma402-build": "0.2.x"
   },
@@ -17,6 +17,6 @@
     "CONTRIBUTING.md"
   ],
   "devDependencies": {
-    "deliteful": "0.1.5-dev"
+    "deliteful": "0.2.0-beta2"
   }
 }
