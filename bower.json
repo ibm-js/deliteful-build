@@ -1,14 +1,19 @@
 {
   "name": "deliteful-build",
-  "version": "0.2.0-dev",
+  "version": "0.3.0-alpha",
   "dependencies": {
     "requirejs": "2.1.x",
-    "dstore": "0.1.0",
+    "dstore": "0.2.0",
     "decor-build": "0.2.0-dev",
-    "delite-build": "0.2.0-dev",
-    "dpointer-build": "0.1.x",
+    "delite-build": "0.3.0-alpha",
+    "dpointer-build": "0.3.x",
     "ecma402-build": "0.2.x"
   },
+  "keywords": [
+    "web-components",
+    "delite",
+    "custom-elements"
+  ],
   "ignore": [
     ".jshintrc",
     ".gitattributes",
@@ -17,6 +22,6 @@
     "CONTRIBUTING.md"
   ],
   "devDependencies": {
-    "deliteful": "0.2.0-dev"
+    "deliteful": "0.3.0-alpha"
   }
 }

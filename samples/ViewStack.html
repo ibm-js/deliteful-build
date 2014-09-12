@@ -30,9 +30,15 @@
 			"requirejs-domready/domReady!"
 		], function(register){
 			register.parse();
-			vs.on("delite-display-complete", function(event){
-				console.log("Displayed node: " + event.child.id);
-			});
+			var handle = function(event){
+				console.log(event.type + ": " + event.dest);
+			};
+			// Listen for delite/DisplayContainer events
+			vs.on("delite-display-load", handle);
+			vs.on("delite-before-show", handle);
+			vs.on("delite-after-show", handle);
+			vs.on("delite-before-hide", handle);
+			vs.on("delite-after-hide", handle);
 
 			createChild = function (){
 				var newChild = document.createElement("div");
@@ -128,6 +134,11 @@
 <button is="d-button" onclick="vs.show('bbb',{transition:'coverv', reverse:rev.checked})">CoverV BBB</button>
 <button is="d-button" onclick="vs.show('ccc',{transition:'coverv', reverse:rev.checked})">CoverV CCC</button>
 <button is="d-button" onclick="vs.show('ddd',{transition:'coverv', reverse:rev.checked})">CoverV DDD</button>
+<br>
+<button is="d-button" onclick="vs.show('aaa',{transition:'none'})">AAA</button>
+<button is="d-button" onclick="vs.show('bbb',{transition:'none'})">BBB</button>
+<button is="d-button" onclick="vs.show('ccc',{transition:'none'})">CCC</button>
+<button is="d-button" onclick="vs.show('ddd',{transition:'none'})">DDD</button>
 
 
 <div style="display: none">
