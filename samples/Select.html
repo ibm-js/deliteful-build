@@ -18,9 +18,7 @@
 	</script>
 
 	<script type="text/javascript">
-
-		var showResults;
-		
+	require(["deliteful-build/boot"], function(){
 		require([
 			"delite/register",
 			"dstore/Memory",
@@ -69,6 +67,8 @@
 					"\nYour favorite players: " + getSelectedItemsTxt(selectPlayer));
 			};
 		});
+	
+	});
 	</script>
 	
 	<style>
