@@ -18,7 +18,7 @@
 	</script>
 
 	<script type="text/javascript">
-	require(["deliteful-build/boot"], function(){
+	require(["deliteful-build/layer"], function(){
 		require([
 			"delite/register",
 			"deliteful/Slider",
@@ -26,6 +26,7 @@
 			"requirejs-domready/domReady!"
 		], function (register) {
 			register.parse();
+
 			var slider = document.getElementById('sliderWidget');
 
 			// very basic tooltip to track value changes
@@ -123,6 +124,8 @@
 			enableSlider.addEventListener("click", function (e) {
 				slider.disabled = !this.checked;
 			});
+
+			document.body.style.display = "";
 		});
 	
 	});
@@ -154,7 +157,7 @@
 		}
 	</style>
 </head>
-<body>
+<body style="display: none">
 <p><strong>deliteful/Slider</strong></p>
 <hr>
 <br>

@@ -17,7 +17,7 @@
 	</script>
 
 	<script type="text/javascript">
-	require(["deliteful-build/boot"], function(){
+	require(["deliteful-build/layer"], function(){
 		require([
 			"delite/register",
 			"deliteful/Button",
@@ -25,6 +25,7 @@
 			"requirejs-domready/domReady!"
 		], function (register) {
 			register.parse();
+			document.body.style.display = "";
 		});
 	
 	});
@@ -36,7 +37,7 @@
 			border: 1px solid gray;
 			border-radius: 6px;
 		}
-		.d-icon-phone:before {
+		.d-icon-phone::before {
 			content: "\260E";
 			padding-right: 4px;
 			font-size: 120%;
@@ -62,7 +63,7 @@
 		}
 	</style>
 </head>
-<body style="background-color:white;">
+<body style="display: none; background-color:white;">
 <div class="group">
 	<button is="d-button" label="Default button" onclick="alert(this.label + ' clicked.');"></button>
 	<button is="d-button" class="d-button-blue" label="Blue button" onclick="alert(this.label + ' clicked.');"></button>

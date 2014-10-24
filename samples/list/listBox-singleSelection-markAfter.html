@@ -17,18 +17,22 @@
 	</script>
 
 	<script type="text/javascript">
-	require(["deliteful-build/boot"], function(){
+	require(["deliteful-build/layer"], function(){
 		require([
 		    "delite/register",
 		    "dojo/on",
+			"dstore/Memory",
+			"dstore/Trackable",
 			"deliteful/list/List",
 			"delite/theme!delite/themes/{{theme}}/global.css"	// page level CSS
-		], function (register, on, List) {
+		], function (register, on, Memory, Trackable, List) {
+			var Store = Memory.createSubclass([Trackable], {});
 			var console = document.createElement("div");
 			console.innerHTML = "Click to select an item.";
 			document.body.appendChild(console);
 			var list = register.createElement("d-list");
 			list.isAriaListbox = true;
+			list.store = new Store();
 			list.setAttribute("aria-label", "Sample list with single selection mode enabled and selection checkmarks displayed after the items");
 			list.store.add({label: "first item"});
 			list.store.add({label: "second item"});
@@ -39,11 +43,13 @@
 				if (event.newValue) {
 					console.innerHTML = "Current selection: " + event.newValue.label;
 				} else {
-					console.innerHTML = "Click to select an item."
+					console.innerHTML = "Click to select an item.";
 				}
 			});
 			document.body.appendChild(list);
-			list.startup();			
+			list.startup();
+
+			document.body.style.display = "";
 		});
 	
 	});
@@ -56,8 +62,8 @@
 		}
 	</style>
 </head>
-<body role="application">
+<body style="display: none" role="application">
 	This sample demonstrate a list with listbox aria role, single selection mode enabled and custom CSS to display a selection mark after the currently selected item(s).
-	<input autofocus></input><br>
+	<input autofocus><br>
 </body>
 </html>

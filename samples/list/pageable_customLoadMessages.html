@@ -16,14 +16,18 @@
 	<script type="text/javascript" src="../../../requirejs/require.js"></script>
 
 	<script type="text/javascript">
-	require(["deliteful-build/boot"], function(){
+	require(["deliteful-build/layer"], function(){
 		require([
 		    "delite/register",
+			"dstore/Memory",
+			"dstore/Trackable",
 			"deliteful/list/PageableList",
 			"delite/theme!delite/themes/{{theme}}/global.css"	// page level CSS
-		], function (register, PageableList) {
-			list = new PageableList();
+		], function (register, Memory, Trackable, PageableList) {
+			var Store = Memory.createSubclass([Trackable], {});
+			var list = new PageableList();
 			list.setAttribute("aria-label", "Sample pageable list with custom loader messages");
+			list.store = new Store();
 			for (var i = 0; i < 100; i++) {
 				list.store.add({label: "item " + i});
 			}
@@ -34,12 +38,14 @@
 			list.loadNextMessage = "Load next data (${pageLength} entries)";
 			document.body.appendChild(list);
 			list.startup();
+
+			document.body.style.display = "";
 		});
 	
 	});
 	</script>
 </head>
-<body role="application">
+<body style="display: none" role="application">
 	This sample demonstrate a pageable list with custom loader messages.
 </body>
 </html>

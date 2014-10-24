@@ -18,7 +18,7 @@
 	</script>
 
 	<script type="text/javascript">
-	require(["deliteful-build/boot"], function(){
+	require(["deliteful-build/layer"], function(){
 		require([
 			"delite/register",
 			"deliteful/ScrollableContainer",
@@ -26,6 +26,7 @@
 			"requirejs-domready/domReady!"
 		], function(register){
 			register.parse();
+			document.body.style.display = "";
 		});
 	
 	});
@@ -67,7 +68,7 @@
 	}
 	</style>
 </head>
-<body>
+<body style="display: none">
 	<div class="container1">
 		<div class="header">H+V scroll</div>
 		

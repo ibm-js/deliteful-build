@@ -5,7 +5,6 @@
 	<meta name="viewport"
 	      content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
 	<meta name="apple-mobile-web-app-capable" content="yes"/>
-	<meta name="viewport" content="width=device-width, user-scalable=no"/>
 
 	<title>Toaster samples</title>
 
@@ -19,7 +18,7 @@
 
 
 	<script type="text/javascript">
-	require(["deliteful-build/boot"], function(){
+	require(["deliteful-build/layer"], function(){
 		require([
 			"deliteful/ToasterMessage",
 			"deliteful/Toaster",
@@ -42,12 +41,14 @@
 					timeout += (Math.floor(Math.random()*3) + 1)*1000;
 			});
 			window.input = document.getElementById("input");
+
+			document.body.style.display = "";
 		});
 	
 	});
 	</script>
 </head>
-<body id="body">
+<body style="display: none" id="body">
 	<input id="input" type="text" value="Something to post">
 	<button onclick="toaster.postMessage(input.value)">post</button>
 </body>

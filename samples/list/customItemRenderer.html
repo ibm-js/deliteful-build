@@ -17,19 +17,23 @@
 	</script>
 
 	<script type="text/javascript">
-	require(["deliteful-build/boot"], function(){
+	require(["deliteful-build/layer"], function(){
 		require([
 			"delite/register",
+			"dstore/Memory",
+			"dstore/Trackable",
 			"deliteful/list/ItemRenderer",
 			"deliteful/list/List",
 			"delite/handlebars!deliteful/samples/list/templates/CustomItemRenderer.html",
 			"delite/theme!delite/themes/{{theme}}/global.css", // page level CSS
 			"requirejs-domready/domReady!"
-		], function (register, ItemRenderer, List, template) {
+		], function (register, Memory, Trackable, ItemRenderer, List, template) {
+			var Store = Memory.createSubclass([Trackable], {});
 			var MyCustomRenderer = register("d-book-item", [HTMLElement, ItemRenderer], {
 				template: template
 			});
 			var list = new List();
+			list.store = new Store();
 			list.setAttribute("aria-label", "Sample list with custom item renderer");
 			list.itemRenderer = MyCustomRenderer;
 			list.copyAllItemProps = true;
@@ -40,6 +44,8 @@
 			list.store.add({title: "Mastering Dojo: JavaScript and Ajax Tools for Great Web Experiences", isbn: "1934356115"});
 			document.body.appendChild(list);
 			list.startup();
+
+			document.body.style.display = "";
 		});
 	
 	});
@@ -54,7 +60,7 @@
 		}		
 	</style>
 </head>
-<body role="application">
+<body style="display: none" role="application">
 	This sample demonstrate how to write a custom item renderer.
 </body>
 </html>

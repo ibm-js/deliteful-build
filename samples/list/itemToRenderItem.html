@@ -17,13 +17,17 @@
 	</script>
 
 	<script type="text/javascript">
-	require(["deliteful-build/boot"], function(){
+	require(["deliteful-build/layer"], function(){
 		require([
 		    "delite/register",
+			"dstore/Memory",
+			"dstore/Trackable",
 			"deliteful/list/List",
 			"delite/theme!delite/themes/{{theme}}/global.css"	// page level CSS
-		], function (register, List) {
+		], function (register, Memory, Trackable, List) {
+			var Store = Memory.createSubclass([Trackable], {});
 			var list = register.createElement("d-list");
+			list.store = new Store();
 			list.setAttribute("aria-label", "Sample list with custom itemToRenderItem method");
 			list.itemToRenderItem = function (item) {
 				return {
@@ -38,12 +42,14 @@
 			list.store.add({title: "fifth item"});
 			document.body.appendChild(list);
 			list.startup();
+
+			document.body.style.display = "";
 		});
 	
 	});
 	</script>
 </head>
-<body role="application">
+<body style="display: none" role="application">
 	This sample demonstrate how to extend the itemToRenderItem method to map a custom item to the one expected by the default item renderer.
 </body>
 </html>

@@ -18,7 +18,7 @@
 	</script>
 
 	<script type="text/javascript">
-	require(["deliteful-build/boot"], function(){
+	require(["deliteful-build/layer"], function(){
 		require([
 			"delite/register",
 			"dstore/Memory",
@@ -28,7 +28,7 @@
 			"requirejs-domready/domReady!"
 		], function (register, Memory) {
 			register.parse();
-			
+
 			var storeTeams = new Memory({}),
 				storePlayers = new Memory({});
 			var teams = ["Brazil", "France", "USA", "Togo"],
@@ -51,7 +51,6 @@
 						res = (select.selectedItem && select.value) ?
 							select.selectedItem.text : noOptionSelected;
 					} else { // selectionMode === "multiple"
-						var res = "";
 						var n = select.selectedItems.length;
 						for (var i = 0; i < n; i++) {
 							res += "\n  " + select.selectedItems[i].text;
@@ -66,6 +65,8 @@
 					"Your favorite team: " + getSelectedItemsTxt(selectTeam) +
 					"\nYour favorite players: " + getSelectedItemsTxt(selectPlayer));
 			};
+
+			document.body.style.display = "";
 		});
 	
 	});
@@ -77,7 +78,7 @@
 	}
 	</style>
 </head>
-<body>
+<body style="display: none">
 
 <br/>
 

@@ -17,16 +17,19 @@
 	</script>
 
 	<script type="text/javascript">
-	require(["deliteful-build/boot"], function(){
+	require(["deliteful-build/layer"], function(){
 		require([
 			"delite/register",
+			"dstore/Memory",
+			"dstore/Trackable",
 			"deliteful/list/ItemRenderer",
 			"deliteful/list/List",
 			"delite/theme!delite/themes/{{theme}}/global.css"	// page level CSS
-		], function (register, ItemRenderer, List) {
+		], function (register, Memory, Trackable, ItemRenderer, List) {
+			var Store = Memory.createSubclass([Trackable], {});
 			var MyCustomRenderer = register("d-dataform-item", [HTMLElement, ItemRenderer], {
 				counter: 1,
-				buildRendering: function () {
+				render: function () {
 					this.renderNode = this.ownerDocument.createElement("div");
 					this.appendChild(this.renderNode);
 					this._firstNameNode = this.appendField("First name");
@@ -37,7 +40,7 @@
 					button.setAttribute("navindex", "0");
 					button.onclick = function () {
 						alert("record updated");
-					}
+					};
 					this.renderNode.appendChild(button);
 				},
 				appendField: function(name) {
@@ -60,6 +63,7 @@
 				}
 			});
 			var list = new List();
+			list.store = new Store();
 			list.setAttribute("aria-label", "Sample list which items are data forms");
 			list.itemRenderer = MyCustomRenderer;
 			list.copyAllItemProps = true;
@@ -71,6 +75,8 @@
 			document.body.appendChild(list);
 			list.startup();
 			list.setAttribute("aria-readonly", "false");
+
+			document.body.style.display = "";
 		});
 	
 	});
@@ -83,7 +89,7 @@
 		
 	</style>
 </head>
-<body role="application">
+<body style="display: none" role="application">
 	This sample demonstrate a list which items are data forms.
 	<p>
 </body>

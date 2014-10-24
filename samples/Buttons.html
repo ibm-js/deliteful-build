@@ -22,7 +22,7 @@
 	</script>
 
 	<script type="text/javascript">
-	require(["deliteful-build/boot"], function(){
+	require(["deliteful-build/layer"], function(){
 		require([
 			"delite/register",
 			"deliteful/CheckBox",
@@ -32,6 +32,7 @@
 			"requirejs-domready/domReady!"
 		], function (register) {
 			register.parse();
+			document.body.style.display = "";
 		});
 
 	
@@ -63,7 +64,7 @@
 
 </style>
 </head>
-<body dir="ltr">
+<body style="display: none" dir="ltr">
 <div style="display:flex">
 <fieldset class="buttonPanel">
 	<legend>Wrapped in label</legend>

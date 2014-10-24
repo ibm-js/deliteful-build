@@ -12,16 +12,12 @@
 
 	<script type="text/javascript">
 		require.config({
-			baseUrl: "../..",
-			config: {
-				//workaround for https://github.com/ibm-js/ecma402/issues/30
-				"ecma402/locales": "en-US"
-			}
+			baseUrl: "../.."
 		});
 	</script>
 
 	<script type="text/javascript">
-	require(["deliteful-build/boot"], function(){
+	require(["deliteful-build/layer"], function(){
 		require([
 			"delite/register",
 			"deliteful/ProgressBar",
@@ -29,6 +25,7 @@
 			"requirejs-domready/domReady!"
 		], function (register) {
 			register.parse();
+			document.body.style.display = "";
 		});
 	
 	});
@@ -56,7 +53,7 @@
 	</style>
 
 </head>
-<body>
+<body style="display: none">
 <p><strong>ProgressBar sample - basic</strong></p>
 
 <p>This sample shows how to declare and customize a progress bar.</p>

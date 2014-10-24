@@ -12,16 +12,12 @@
 
 	<script type="text/javascript">
 		require.config({
-			baseUrl: "../..",
-			config: {
-				//workaround for https://github.com/ibm-js/ecma402/issues/30
-				"ecma402/locales": "en-US"
-			}
+			baseUrl: "../.."
 		});
 	</script>
 
 	<script type="text/javascript">
-	require(["deliteful-build/boot"], function(){
+	require(["deliteful-build/layer"], function(){
 		require([
 			"delite/register",
 			"deliteful/ProgressBar",
@@ -29,6 +25,7 @@
 			"requirejs-domready/domReady!"
 		], function (register) {
 			register.parse();
+
 			var label = document.getElementById("lb");
 			var progressBar = document.getElementById("pb1");
 			var loadBtn = document.getElementById("loadBtn");
@@ -60,6 +57,8 @@
 						"Max: " + event.max;
 			};
 			progressBar.addEventListener("change", pbHandler);
+
+			document.body.style.display = "";
 		});
 	
 	});
@@ -70,7 +69,7 @@
 		}
 	</style>
 </head>
-<body>
+<body style="display: none">
 <p><strong>ProgressIndicator sample - percentage</strong></p>
 
 <p>This sample shows how to use the progress bar.</p>

@@ -17,7 +17,7 @@
 	</script>
 
 	<script type="text/javascript">
-	require(["deliteful-build/boot"], function(){
+	require(["deliteful-build/layer"], function(){
 		require([
 			"delite/register",
 			"deliteful/LinearLayout",
@@ -25,6 +25,7 @@
 			"requirejs-domready/domReady!"
 		], function(register){
 			register.parse();
+			document.body.style.display = "";
 		});
 	
 	});
@@ -57,7 +58,7 @@
 
 	</style>
 </head>
-<body>
+<body style="display: none">
 <!-- This sample demonstrates how to mix:
 		- fixed-sized elements,
 		- percentage-sized elements,
