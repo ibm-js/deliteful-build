@@ -20,12 +20,11 @@
 	require(["deliteful-build/layer"], function(){
 		require([
 		    "delite/register",
-		    "dojo/on",
 			"dstore/Memory",
 			"dstore/Trackable",
 			"deliteful/list/List",
 			"delite/theme!delite/themes/{{theme}}/global.css"	// page level CSS
-		], function (register, on, Memory, Trackable, List) {
+		], function (register, Memory, Trackable, List) {
 			var Store = Memory.createSubclass([Trackable], {});
 			var console = document.createElement("div");
 			console.innerHTML = "Click to select an item.";
@@ -64,6 +63,5 @@
 </head>
 <body style="display: none" role="application">
 	This sample demonstrate a list with listbox aria role, single selection mode enabled and custom CSS to display a selection mark after the currently selected item(s).
-	<input autofocus><br>
 </body>
 </html>
