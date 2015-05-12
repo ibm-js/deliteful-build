@@ -17,7 +17,6 @@
 	<script type="text/javascript">
 	require(["deliteful-build/layer"], function(){
 		require([
-			"delite/register",
 			"deliteful/ViewStack",
 			"deliteful/Button",
 			"requirejs-dplugins/css!deliteful/ViewStack/transitions/cover.css",
@@ -28,19 +27,7 @@
 			"requirejs-dplugins/css!deliteful/ViewStack/transitions/revealv.css",
 			"delite/theme!delite/themes/{{theme}}/global.css",	// page level CSS
 			"requirejs-domready/domReady!"
-		], function(register){
-			register.parse();
-
-			var handle = function(event){
-				console.log(event.type + ": " + event.dest);
-			};
-			// Listen for delite/DisplayContainer events
-			vs.on("delite-display-load", handle);
-			vs.on("delite-before-show", handle);
-			vs.on("delite-after-show", handle);
-			vs.on("delite-before-hide", handle);
-			vs.on("delite-after-hide", handle);
-
+		], function(){
 			createChild = function (){
 				var newChild = document.createElement("div");
 				newChild.id = "eee";
@@ -81,7 +68,10 @@
 <button is="d-button" onclick="vs.showPrevious();">Previous</button>
 <button is="d-button" onclick="vs.showNext();">Next</button>
 <br>
-<d-view-stack id="vs" selectedChildId="bbb">
+<d-view-stack id="vs" selectedChildId="bbb"
+		on-delite-display-load="console.log(event.type + ': ' + event.dest)"
+		on-delite-before-show="console.log(event.type + ': ' + event.dest)"
+		on-delite-after-show="console.log(event.type + ': ' + event.dest)">
 	<div style="background-color: honeydew; " id="aaa">
 		<h1>AAA</h1>
 	</div>

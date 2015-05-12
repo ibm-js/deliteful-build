@@ -20,7 +20,6 @@
 	<script type="text/javascript">
 	require(["deliteful-build/layer"], function(){
 		require([
-			"delite/register",
 			"dstore/Memory",
 			"deliteful/list/List",
 			"deliteful/Combobox",
@@ -30,8 +29,7 @@
 			"deliteful/Checkbox",
 			"delite/theme!delite/themes/{{theme}}/global.css",	// page level CSS
 			"requirejs-domready/domReady!"
-		], function (register, Memory, List) {
-			register.parse();
+		], function (Memory, List) {
 
 			startsWith.on("change", function () {
 				comboTeams.filterMode = "startsWith";
@@ -112,7 +110,7 @@
 Your favorite team (single choice):
 </p>
 <d-combobox selectionMode="single" autoFilter="true" id="comboTeams">
-	<d-list righttextAttr="world-cup-victories" categoryAttr: "region"
+	<d-list righttextAttr="world-cup-victories" categoryAttr="region"
 		store="storeTeams"></d-list>
 </d-combobox>
 <p>
@@ -128,7 +126,7 @@ Your favorite team (single choice):
 	<d-radio-button name="radio" id="is" checked="false"></d-radio-button>
 	<label for="is">is</label>
 	<d-checkbox id="ignoreCase" checked></d-checkbox>
-	<label for="ignoreCase">Ignore Case</label></p>
+	<label for="ignoreCase">Ignore Case</label>
 </fieldset>
 <br/>
 <p>

@@ -19,13 +19,11 @@
 	<script type="text/javascript">
 	require(["deliteful-build/layer"], function(){
 		require([
-			"delite/register",
 			"deliteful/ProgressBar",
 			"delite/theme!delite/themes/{{theme}}/global.css",	// page level CSS
 			"requirejs-domready/domReady!"
-		], function (register) {
-			register.parse();
-			document.body.style.display = "";
+		], function () {
+			document.body.style.visibility = "visible";
 		});
 	
 	});
@@ -53,7 +51,7 @@
 	</style>
 
 </head>
-<body style="display: none">
+<body style="visibility: hidden">
 <p><strong>ProgressBar sample - basic</strong></p>
 
 <p>This sample shows how to declare and customize a progress bar.</p>

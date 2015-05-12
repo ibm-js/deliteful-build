@@ -20,14 +20,12 @@
 	<script type="text/javascript">
 	require(["deliteful-build/layer"], function(){
 		require([
-			"delite/register",
 			"dstore/Memory",
 			"deliteful/Select",
 			"deliteful/Button",
 			"delite/theme!delite/themes/{{theme}}/global.css",	// page level CSS
 			"requirejs-domready/domReady!"
-		], function (register, Memory) {
-			register.parse();
+		], function (Memory) {
 
 			var storeTeams = new Memory({}),
 				storePlayers = new Memory({});

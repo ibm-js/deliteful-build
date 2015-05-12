@@ -18,12 +18,10 @@
 	<script type="text/javascript">
 	require(["deliteful-build/layer"], function(){
 		require([
-			"delite/register",
 			"deliteful/ProgressIndicator",
 			"delite/theme!delite/themes/{{theme}}/global.css",	// page level CSS
 			"requirejs-domready/domReady!"
-		], function (register, ProgressIndicator) {
-			register.parse();
+		], function () {
 			document.body.style.display = "";
 		});
 	

@@ -24,8 +24,6 @@
 			"delite/theme!delite/themes/{{theme}}/global.css",	// page level CSS
 			"requirejs-domready/domReady!"
 		], function (register) {
-			register.parse();
-
 			var label = document.getElementById("lb");
 			var progressBar = document.getElementById("pb1");
 			var loadBtn = document.getElementById("loadBtn");
@@ -63,6 +61,7 @@
 			};
 
 			label.innerHTML = "Value: indeterminate";
+			register.deliver();
 			progressBar.observe(updateLabel); // update label everytime widget changes
 
 			document.body.style.display = "";
