@@ -1,14 +1,16 @@
 {
   "name": "deliteful-build",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "dependencies": {
     "jquery": ">=2.1",
     "requirejs": "2.1.x",
-    "dstore": "1.0.x",
-    "decor-build": "0.6.x",
-    "delite-build": "0.7.x",
+    "decor-build": "0.7.x",
+    "delite-build": "0.8.x",
     "dpointer-build": "0.5.x",
     "ecma402-build": "0.3.x"
+  },
+  "devDependencies": {
+    "deliteful": "0.8.0"
   },
   "keywords": [
     "web-components",
@@ -21,8 +23,5 @@
     ".travis.yml",
     "tests",
     "CONTRIBUTING.md"
-  ],
-  "devDependencies": {
-    "deliteful": "0.7.1"
-  }
+  ]
 }
